@@ -1,3 +1,3 @@
 from tkinter import *
-import sqlite
+import sqlite3
 from pandas import *
