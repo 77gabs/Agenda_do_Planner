@@ -28,3 +28,16 @@ janela = Tk()
 janela.title('Cadastro de Clientes')
 janela.configure(background=cor1)
 janela. geometry("400x400")
+
+def cadastrar_cliente():
+    conexao = sqlite3.connect('clientes.db')
+    c = conexao.cursor()
+
+    #Inserir dados na tabela:
+    c.execute("INSERT INTO clientes VALUES (:nome,:sobrenome,:email,:telefone)",
+              {
+                  'nome': entry_nome.get(),
+                  'sobrenome': entry_sobrenome.get(),
+                  'email': entry_email.get(),
+                  'telefone': entry_telefone.get()
+              })
