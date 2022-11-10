@@ -17,3 +17,14 @@ c.execute("""CREATE TABLE IF NOT EXISTS  clientes (
     email text,
     telefone text
      )""")
+
+# #Commit as mudanças:conexao.commit()
+
+# #Fechar o banco de dados:
+conexao.close()
+
+# criação da tela
+janela = Tk()
+janela.title('Cadastro de Clientes')
+janela.configure(background=cor1)
+janela. geometry("400x400")
