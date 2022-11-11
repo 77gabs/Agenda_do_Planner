@@ -53,3 +53,15 @@ def cadastrar_cliente():
     entry_sobrenome.delete(0,"end")
     entry_email.delete(0,"end")
     entry_telefone.delete(0,"end")
+
+#verificar credenciais
+credenciais = ['Letícia','1234']
+
+def verificar_senha():
+    nome = e_nome.get()
+    senha = e_pass.get()
+
+    if nome == 'admin' and senha == 'admin':
+        messagebox.showinfo('Login', 'Seja bem vindo Admin!')
+    elif credenciais[0] == nome and credenciais[1] == senha:
+        messagebox.showinfo('Login', 'Seja bem vindo de volta ' +credenciais[0])
