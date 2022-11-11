@@ -5,7 +5,7 @@ from pandas import *
 # #Criando o Banco de Dados:
 conexao = sqlite3.connect('clientes.db')
 cor1 = '#B0C4DE'
-#arquivo = open('clientes.xlsx', '+a')
+# arquivo = open('clientes.xlsx', '+a')
 # # Criando o cursor:
 c = conexao.cursor()
 
@@ -41,3 +41,15 @@ def cadastrar_cliente():
                   'email': entry_email.get(),
                   'telefone': entry_telefone.get()
               })
+
+ # Commit as mudanças:
+    conexao.commit()
+
+    # Fechar o banco de dados:
+    conexao.close()
+
+    # #Apaga os valores das caixas de entrada
+    entry_nome.delete(0,"end")
+    entry_sobrenome.delete(0,"end")
+    entry_email.delete(0,"end")
+    entry_telefone.delete(0,"end")
