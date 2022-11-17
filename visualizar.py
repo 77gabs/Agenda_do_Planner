@@ -16,8 +16,6 @@ class usuario:
       id_usuario = cursor.fetchall()
     return id_usuario[0][0]
 
-print("Aparentemente não está rodando!!!")
-
 class agendamento:
   def __init__(self,nome,data,des,id_usuario):
     self.nome = nome
