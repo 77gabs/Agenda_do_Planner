@@ -89,6 +89,11 @@ def telCadastrar():
             cursor.execute(query, [NomeUsuario])
             user = cursor.fetchall()
             return False if user else True
+    botaovoltar = Button(janelaCadastro,bd=0,image=imagem_B_VOLTAR,command=lambda: [janelaCadastro.destroy(), tela_inicio()])
+    botaovoltar.place(width=70, height=50, x=10, y=10)
+    # Criação dos botões
+    bt_concluir = Button(janelaCadastro,bd=0,image=img_botaoconcluir,command=lambda: [janelaCadastro.destroy(), Agendamentos2022()]if cadastroUsuarios(entryEmail.get(), EntrySenha.get(), EntryTelefone.get()) else [])
+    bt_concluir.place(width=120, height=28, x=340, y=328)
     janelaCadastro.mainloop()
 tela_inicio()
 
