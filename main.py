@@ -37,6 +37,19 @@ def telCadastrar():
     lab_fundo = Label(janelaCadastro, image=img_telacadastro)
     lab_fundo.pack()
 
+    # Configurando entrada de dados
+    entryNome = Entry(janelaCadastro, bd=2, bg='black',fg='white', justify=CENTER)
+    entryNome.place(width=160, height=30, x=320, y=120)
+
+    entryEmail = Entry(janelaCadastro,  bd=2, bg='black',fg='white', justify=CENTER)
+    entryEmail.place(width=160, height=30, x=320, y=223)
+
+    EntrySenha = Entry(janelaCadastro, show='*', bg='black', bd=2, fg='white', justify=CENTER)
+    EntrySenha.place(width=160, height=30, x=320, y=275)
+
+    EntryTelefone = Entry(janelaCadastro, bd=2, bg='black',fg='white', justify=CENTER)
+    EntryTelefone.place(width=160, height=30, x=320, y=170)
+
     janelaCadastro.mainloop()
 tela_inicio()
 
