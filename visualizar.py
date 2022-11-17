@@ -15,3 +15,5 @@ class usuario:
       cursor.execute(query, [self.nome])
       id_usuario = cursor.fetchall()
     return id_usuario[0][0]
+
+print("Aparentemente não está rodando!!!")
