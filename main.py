@@ -49,7 +49,34 @@ def telCadastrar():
 
     EntryTelefone = Entry(janelaCadastro, bd=2, bg='black',fg='white', justify=CENTER)
     EntryTelefone.place(width=160, height=30, x=320, y=170)
-
+    def cadastroUsuarios(email, senha, telefone):
+    if email and senha and telefone:
+        if not (11 < len(email) < 40):
+            messagebox.showerror(title='ATENÇÃO!', message='Tamanho mínimo do email é 11 caracteres e máximo de 40')
+            return False
+        elif not nomesDisponivel(email):
+            messagebox.showerror(title='ATENÇÃO', message='Este email já está cadastrado!')
+            return False
+        elif not (4 < len(senha) < 20):
+            messagebox.showerror(title='ATENÇÃO!', message='Tamanho mínimo da Senha é 4 caracteres e máximo de 20')
+            return False
+        elif not (9 < len(telefone) < 15):
+            messagebox.showerror(title='ATENÇÃO!', message='Tamanho mínimo do telefone é 5 algarismos e máximo de 20')
+            return False
+        else:
+            global UserAtualLYGV
+            with conexao:
+                i = [email, senha, telefone]
+                cursor = conexao.cursor()
+                query = "INSERT INTO usuario (nome, senha, backup) VALUES (?, ?, ?)"
+                cursor.execute(query, i)
+            UserAtualLYGV = usuario(email, senha, telefone)
+            return True
+    else:
+        messagebox.showerror(title='ERRO', message='Dados não podem ser vazios')
+        return False
+          
     janelaCadastro.mainloop()
 tela_inicio()
+
 
