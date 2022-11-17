@@ -60,8 +60,8 @@ def telCadastrar():
           elif not (4 < len(senha) < 20):
               messagebox.showerror(title='ATENÇÃO!', message='Tamanho mínimo da Senha é 4 caracteres e máximo de 20')
               return False
-          elif not (9 < len(telefone) < 15):
-              messagebox.showerror(title='ATENÇÃO!', message='Tamanho mínimo do telefone é 5 algarismos e máximo de 20')
+          elif not (8 < len(telefone) < 14):
+              messagebox.showerror(title='ATENÇÃO!', message='Tamanho mínimo do telefone é 8 algarismos e máximo de 14')
               return False
           else:
               global UserAtualLYGV
@@ -95,6 +95,20 @@ def telCadastrar():
     bt_concluir = Button(janelaCadastro,bd=0,image=img_botaoconcluir,command=lambda: [janelaCadastro.destroy(), Agendamentos2022()]if cadastroUsuarios(entryEmail.get(), EntrySenha.get(), EntryTelefone.get()) else [])
     bt_concluir.place(width=120, height=28, x=340, y=328)
     janelaCadastro.mainloop()
+
+def tela_login():
+    janelaLogin = Tk()
+    janelaLogin.title(" ")
+    janelaLogin.geometry("800x400")
+    janelaLogin.resizable(width=False, height=False)
+    img_telalogin = PhotoImage(file='interface/telas/telLogin.png')
+    imagem_B_VOLTAR = PhotoImage(file='interface/botoes/botaoVoltar.png')
+    img_botaoinicia = PhotoImage(file='interface/botoes/botaoEntrar.png')
+    img_btesquece = PhotoImage(file='interface/botoes/botaoEsqueceuSenha.png')
+    lab_fundo = Label(janelaLogin, image=img_telalogin)
+    lab_fundo.pack()
+
+    janelaLogin.mainloop()
 tela_inicio()
 
 
