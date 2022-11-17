@@ -25,4 +25,18 @@ def tela_inicio():
     bt_cadastro = Button(janelaInicial, bd=0, bg='white', image=img_botaocadastro,command=lambda: [janelaInicial.destroy(), telCadastrar()])
     bt_cadastro.place(width=100, height=30, x=253, y=345)
     janelaInicial.mainloop()
+
+def telCadastrar():
+    janelaCadastro = Tk()
+    janelaCadastro.title(" ")
+    janelaCadastro.geometry("800x400")
+    janelaCadastro.resizable(width=FALSE, height=FALSE)
+    img_telacadastro = PhotoImage(file='interface/telas/telCadastro.png')
+    imagem_B_VOLTAR = PhotoImage(file='interface/botoes/botaoVoltar.png')
+    img_botaoconcluir = PhotoImage(file='interface/botoes/botaoCadastrar.png')
+    lab_fundo = Label(janelaCadastro, image=img_telacadastro)
+    lab_fundo.pack()
+
+    janelaCadastro.mainloop()
 tela_inicio()
+
