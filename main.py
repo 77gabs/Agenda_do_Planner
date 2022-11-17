@@ -54,7 +54,7 @@ def telCadastrar():
         if not (11 < len(email) < 40):
             messagebox.showerror(title='ATENÇÃO!', message='Tamanho mínimo do email é 11 caracteres e máximo de 40')
             return False
-        elif not nomesDisponivel(email):
+        elif not emailsDisponiveis(email):
             messagebox.showerror(title='ATENÇÃO', message='Este email já está cadastrado!')
             return False
         elif not (4 < len(senha) < 20):
@@ -75,7 +75,20 @@ def telCadastrar():
     else:
         messagebox.showerror(title='ERRO', message='Dados não podem ser vazios')
         return False
-          
+    def emailsDisponiveis(NomeUsuario):
+        with conexao:
+            cursor = conexao.cursor()
+            query = "SELECT nome FROM usuario WHERE nome == ?"
+            cursor.execute(query, [NomeUsuario])
+            user = cursor.fetchall()
+            return False if user else True
+    def emailsDisponiveis(NomeUsuario):
+        with conexao:
+            cursor = conexao.cursor()
+            query = "SELECT nome FROM usuario WHERE nome == ?"
+            cursor.execute(query, [NomeUsuario])
+            user = cursor.fetchall()
+            return False if user else True
     janelaCadastro.mainloop()
 tela_inicio()
 
