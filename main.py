@@ -221,6 +221,27 @@ def Agendamentos2022():
         except IndexError:
             messagebox.showerror('Atenção!', 'Selecione um dos dados na tabela, para fazer modificações.')
 
+    # função deletar eventos
+    def deletar():
+      #TRY AQUII
+        try:
+            tttDados = maioOi.focus()
+            tttdicionario = maioOi.item(tttDados)
+            tttLista = tttdicionario['values']
+
+            valor_id = [tttLista[0]]
+
+            agendamento.deletar_info(valor_id)
+            messagebox.showinfo('Feito!', 'Dados apagados com exeto.')
+
+            for widget in direita.winfo_children():
+                widget.destroy()
+
+            MostrarDados()
+        #EXCEPT AQUII
+        except IndexError:
+            messagebox.showerror(
+                'Atenção!', 'Selecione um dos dados na tabela, para fazer ações.')
 
     def MostrarDados():
         global maioOi
@@ -264,7 +285,29 @@ def Agendamentos2022():
 
     bt_deletar = Button(JanelaAgendametos, bd=0,text='Deletar', bg='red', command=deletar)
     bt_deletar.place(width=80, height=25, x=195, y=358)
-   
+    # função deletar eventos
+    def deletar():
+      #TRY AQUII
+        try:
+            tttDados = maioOi.focus()
+            tttdicionario = maioOi.item(tttDados)
+            tttLista = tttdicionario['values']
+
+            valor_id = [tttLista[0]]
+
+            agendamento.deletar_info(valor_id)
+            messagebox.showinfo('Feito!', 'Dados apagados com exeto.')
+
+            for widget in direita.winfo_children():
+                widget.destroy()
+
+            MostrarDados()
+        #EXCEPT AQUII
+        except IndexError:
+            messagebox.showerror(
+                'Atenção!', 'Selecione um dos dados na tabela, para fazer ações.')
+
+
 
     # Chamando a função MostrarDados
     MostrarDados()
