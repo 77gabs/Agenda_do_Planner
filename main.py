@@ -312,4 +312,18 @@ def Agendamentos2022():
     # Chamando a função MostrarDados
     MostrarDados()
     JanelaAgendametos.mainloop()
+
+def login_valido(NomeUsuario, senha):
+    global UserAtualLYGV
+    if NomeUsuario and senha:
+        if recuperacaoDAsenha(NomeUsuario) != senha:
+            return False
+        else:
+            user = ResgatarUsuario(NomeUsuario)
+           
+            UserAtualLYGV = usuario(user[0][1], user[0][2], user[0][3])
+            return True
+    else:
+        return False
+
 tela_inicio()
