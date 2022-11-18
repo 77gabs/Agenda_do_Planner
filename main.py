@@ -20,10 +20,10 @@ def tela_inicio():
     lab_fundo.pack()
     # Criação de botões
     bt_login = Button(janelaInicial, bd=0, bg='white', image=img_botaologin,command=lambda: [janelaInicial.destroy(), tela_login()])
-    bt_login.place(width=100, height=30, x=448, y=345)
+    bt_login.place(width=100, height=30, x=350, y=325)
 
     bt_cadastro = Button(janelaInicial, bd=0, bg='white', image=img_botaocadastro,command=lambda: [janelaInicial.destroy(), telCadastrar()])
-    bt_cadastro.place(width=100, height=30, x=253, y=345)
+    bt_cadastro.place(width=100, height=30, x=350, y=265)
     janelaInicial.mainloop()
 
 def telCadastrar():
