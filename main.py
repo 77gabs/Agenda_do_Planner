@@ -96,6 +96,7 @@ def telCadastrar():
     bt_concluir.place(width=120, height=28, x=340, y=328)
     janelaCadastro.mainloop()
 
+#tela Login
 def tela_login():
     janelaLogin = Tk()
     janelaLogin.title(" ")
@@ -107,6 +108,7 @@ def tela_login():
     img_btesquece = PhotoImage(file='interface/botoes/botaoEsqueceuSenha.png')
     lab_fundo = Label(janelaLogin, image=img_telalogin)
     lab_fundo.pack()
+  
 
     janelaLogin.mainloop()
 tela_inicio()
