@@ -125,6 +125,49 @@ def tela_login():
     bt_esquecesenha.place(width=135, height=20, x=330, y=326)
 
     janelaLogin.mainloop()
+
+def Agendamentos2022():
+    JanelaAgendametos = Tk()
+    JanelaAgendametos.title(" ")
+    JanelaAgendametos.geometry("800x400")
+    JanelaAgendametos.resizable(width=FALSE, height=FALSE)
+
+    ImagemCima = PhotoImage(file='interface/telas/telaMenuAgendamentos.png')
+    ImagemEsquerda = PhotoImage(file='interface/telas/telAgendamentos.png')
+    imagem_B_VOLTAR = PhotoImage(file='interface/botoes/botaoDeslogar.png')
+
+    L_Cima = Label(JanelaAgendametos, image=ImagemCima)
+    L_Cima.pack()
+    L_Esquerda = Label(JanelaAgendametos, image=ImagemEsquerda)
+    L_Esquerda.pack(side=LEFT)
+    # Configurando Frames 
+    direita = Frame(JanelaAgendametos, width=577, height=500,bd=1, bg=cor0, relief="raise")
+    direita.pack(padx=1, pady=0)
+    #Entrada de dados
+    entryNome = Entry(JanelaAgendametos, bd=2, bg='black',fg='white', justify=CENTER)
+    entryNome.place(width=220, height=36, x=12, y=68)
+
+    entryData = DateEntry(JanelaAgendametos, width=21, background='darkblue',foreground='white', borderwidth=4, year=2022)
+    entryData.place(x=50, y=130)
+
+    entryDescricao = Text(JanelaAgendametos, bd=2, bg='black', fg='white')
+    entryDescricao.place(width=240, height=140, x=12, y=185)
+  
+    # Criação dos botões
+    botaovoltar = Button(JanelaAgendametos, bg='black', bd=0, image=imagem_B_VOLTAR,command=lambda: [JanelaAgendametos.destroy(), tela_inicio()])
+    botaovoltar.place(width=95, height=40, x=700, y=4)
+    
+    bt_inserir = Button(JanelaAgendametos, text='Criar',bd=0, bg='blue', command=criarAgends)
+    bt_inserir.place(width=80, height=25, x=5, y=358)
+
+    bt_atualizar = Button(JanelaAgendametos, text='Modificar',bg='green', command=atualizar)
+    bt_atualizar.place(width=80, height=25, x=100, y=358)
+
+    bt_deletar = Button(JanelaAgendametos, bd=0,text='Deletar', bg='red', command=deletar)
+    bt_deletar.place(width=80, height=25, x=195, y=358)
+   
+
+    # Chamando a função MostrarDados
+    MostrarDados()
+    JanelaAgendametos.mainloop()
 tela_inicio()
-
-
