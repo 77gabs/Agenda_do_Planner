@@ -108,7 +108,21 @@ def tela_login():
     img_btesquece = PhotoImage(file='interface/botoes/botaoEsqueceuSenha.png')
     lab_fundo = Label(janelaLogin, image=img_telalogin)
     lab_fundo.pack()
-  
+    # Configurando entrada de dados
+    entryEmail = Entry(janelaLogin, bd=2, bg='black',fg='white', justify=CENTER)
+    entryEmail.place(width=196, height=37, x=300, y=159)
+
+    EntrySenha = Entry(janelaLogin, show='*', bd=2, bg='black', fg='white', justify=CENTER)
+    EntrySenha.place(width=196, height=37, x=300, y=225)
+    # Botões
+    botaovoltar = Button(janelaLogin, bd=0, bg='black', image=imagem_B_VOLTAR,command=lambda: [janelaLogin.destroy(), tela_inicio()])
+    botaovoltar.place(width=70, height=50, x=10, y=10)
+
+    botaoIniciarCS = Button(janelaLogin, bd=0, bg='white', image=img_botaoinicia, command=lambda: [janelaLogin.destroy(), Agendamentos2022()]if login_valido(entryEmail.get(), EntrySenha.get()) else [loginError()])
+    botaoIniciarCS.place(width=125, height=36, x=338, y=283)
+
+    bt_esquecesenha = Button(janelaLogin, bd=0, bg='black', image=img_btesquece, command=lambda: [janelaLogin.destroy(), EsqueceuSenha()])
+    bt_esquecesenha.place(width=135, height=20, x=330, y=326)
 
     janelaLogin.mainloop()
 tela_inicio()
