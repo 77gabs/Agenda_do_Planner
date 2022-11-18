@@ -325,7 +325,8 @@ def login_valido(NomeUsuario, senha):
             return True
     else:
         return False
-
+      
+#recuperar senha
 def recuperacaoDAsenha(NomeUsuario):
     with conexao:
         cursor = conexao.cursor()
