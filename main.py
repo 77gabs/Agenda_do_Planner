@@ -153,6 +153,29 @@ def Agendamentos2022():
     entryDescricao = Text(JanelaAgendametos, bd=2, bg='black', fg='white')
     entryDescricao.place(width=240, height=140, x=12, y=185)
 
+    # adicoionar Agendamentos
+    def criarAgends():
+        global UserAtualLYGV
+        nome = entryNome.get()
+        dia = entryData.get()
+        descricao = entryDescricao.get(1.0, 'end')
+        id = UserAtualLYGV.recuperar_id()
+        lista = [nome, dia, descricao, id]
+
+        if nome=='':
+            messagebox.showerror('Atenção!', 'Nome de agendamento não pode ser vazio')
+        else:
+            agendamento.inserir_info(lista)
+            messagebox.showinfo('Feito!', 'Dados adicionados com sucesso.')
+
+            entryNome.delete(0, 'end')
+            entryData.delete(0, 'end')
+            entryDescricao.delete(1.0, 'end')
+        for widget in direita.winfo_children():
+            widget.destroy()
+
+        MostrarDados()
+
     def MostrarDados():
         global maioOi
         global UserAtualLYGV
