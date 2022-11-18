@@ -326,4 +326,13 @@ def login_valido(NomeUsuario, senha):
     else:
         return False
 
+def recuperacaoDAsenha(NomeUsuario):
+    with conexao:
+        cursor = conexao.cursor()
+        query = "SELECT senha FROM usuario WHERE nome == ?"
+        cursor.execute(query, [NomeUsuario])
+        senha_user = cursor.fetchall()
+    if senha_user:
+        return senha_user[0][0]
+
 tela_inicio()
