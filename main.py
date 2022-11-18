@@ -175,6 +175,52 @@ def Agendamentos2022():
             widget.destroy()
 
         MostrarDados()
+# Atualizar agendamentos
+    def atualizar():
+        try:
+            tttDados = maioOi.focus()
+            tttdicionario = maioOi.item(tttDados)
+            tttLista = tttdicionario['values']
+
+            valor_id = tttLista[0]
+
+            entryNome.delete(0, 'end')
+            entryData.delete(0, 'end')
+            entryDescricao.delete(1.0, 'end')
+
+            entryNome.insert(0, tttLista[1])
+            entryData.insert(0, tttLista[2])
+            entryDescricao.insert(1.0, tttLista[3])
+
+            def update():
+                nome = entryNome.get()
+                dia = entryData.get()
+                descricao = entryDescricao.get(1.0, 'end')
+
+                lista = [nome, dia, descricao, valor_id]
+
+                if nome == '':
+                    messagebox.showerror('Atenção!', 'Nome de agendamento não pode ser vazio.')
+                else:
+                    agendamento.atualizar_info(lista)
+                    messagebox.showinfo('Feito!', 'Dados modificados com sucesso.')
+
+                    entryNome.delete(0, 'end')
+                    entryData.delete(0, 'end')
+                    entryDescricao.delete(1.0, 'end')
+
+                for widget in direita.winfo_children():
+                    widget.destroy()
+
+                MostrarDados()
+
+            # Botão para confirmar
+            b_confirmar = Button(JanelaAgendametos, command=update,text='Confirmar', bg=cor1)
+            b_confirmar.place(width=75, height=25, x=85, y=328)
+
+        except IndexError:
+            messagebox.showerror('Atenção!', 'Selecione um dos dados na tabela, para fazer modificações.')
+
 
     def MostrarDados():
         global maioOi
