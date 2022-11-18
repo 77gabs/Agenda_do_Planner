@@ -152,7 +152,37 @@ def Agendamentos2022():
 
     entryDescricao = Text(JanelaAgendametos, bd=2, bg='black', fg='white')
     entryDescricao.place(width=240, height=140, x=12, y=185)
-  
+
+    def MostrarDados():
+        global maioOi
+        global UserAtualLYGV
+        id = UserAtualLYGV.recuperar_id()
+        lista = agendamento.mostrar_info(id)
+        # Lista para banco de dados
+        tabela_header = ['Nº', 'Nome', 'Data', 'Descrição']
+        # Criação de tabelas
+        maioOi = ttk.Treeview(direita, height=17, selectmode="extended",columns=tabela_header, show="headings")
+        # Vertical scrollbar
+        vsb = ttk.Scrollbar(direita, orient="vertical", command=maioOi.xview)
+        maioOi.configure(yscrollcommand=vsb.set)
+        maioOi.grid(column=0, row=0, sticky='nsew')
+        vsb.grid(column=1, row=0, sticky='ns')
+
+        direita.grid_rowconfigure(0, weight=12)
+
+        hd = ['nw', 'nw', 'center', 'nw']
+        h = [30, 140, 120, 280]
+        n = 0
+
+        for col in tabela_header:
+            maioOi.heading(col, text=col.title(), anchor=CENTER)
+            maioOi.column(col, width=h[n], anchor=hd[n])
+          
+            n += 1
+
+        for item in lista:
+            maioOi.insert('', 'end', values=item)
+          
     # Criação dos botões
     botaovoltar = Button(JanelaAgendametos, bg='black', bd=0, image=imagem_B_VOLTAR,command=lambda: [JanelaAgendametos.destroy(), tela_inicio()])
     botaovoltar.place(width=95, height=40, x=700, y=4)
